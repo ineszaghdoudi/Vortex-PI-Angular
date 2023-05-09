@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rescue The Stray</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    
+    <link href="../assets/img/favicon.ico" rel="icon">
+        
+    <!--
+    Google Web Fonts 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+
+     Icon Font Stylesheet 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+     Libraries Stylesheet 
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+     Customized Bootstrap Stylesheet 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    Template Stylesheet 
+    <link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+     <!-- Nav Bar -->
+
+     <app-nav-bar></app-nav-bar>
+
+     <!-- End Nav Bar -->
+
+    <!--modalshow-->
+    <div class="modal fade" id="showw"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Post details</h5>
+                <a class="close" href="adoptioncenter">&times;</a>
+              </div>
+              <div class="modal-body">
+                <div class="container p-0">
+  
+                  <!---->
+                  
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Post details</h3>
+                    
+                        <div class="row g-3" >
+                            
+                          
+                          <div class="col-12 col-sm-7">
+                            <label for="type" class="label">Name</label>
+                            <p>{{this.apobj.name_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Type</label>
+                            <p>{{this.apobj.type_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Breed</label>
+                            <p>{{this.apobj.breed_animal}}</p>
+                          </div>
+                          <div class="col-12">
+                            <label for="gender" class="label" style="margin-right: 2cm;">Gender</label>
+                            <p>{{this.apobj.gender_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Age</label>
+                            <p>{{this.apobj.age_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="size" class="label">Size</label>
+                            <p>{{this.apobj.size_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Weight</label>
+                            <p>{{this.apobj.weight_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Color</label>
+                            <p>{{this.apobj.color_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Temperament</label>
+                            <p>{{this.apobj.temperament_animal}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">is Vaccinated?</label>
+                            <p>{{this.apobj.isVaccinated}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">is Trained?</label>
+                            <p>{{this.apobj.isTrained}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Medical Needs</label>
+                            <p>{{this.apobj.medicalNeeds_description}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Behavioral Needs</label>
+                            <p>{{this.apobj.behavioralNeeds_description}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">History</label>
+                            <p>{{this.apobj.history_animal}}</p> 
+                          </div> 
+                          <div class="col-7">
+                            <label for="type" class="label">Description</label>
+                            <p>{{this.adpobj.description_adoptionpost}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Status</label>
+                            <p>{{this.adpobj.status_adoptionpost}}</p>
+                          </div>
+                          <div class="col-12">
+                            <label for="gender" class="label" style="margin-right: 2cm;">Creation Date</label>
+                            <p>{{this.adpobj.creationdate_adoptionpost}}</p>
+                          </div>
+                          
+                        </div>
+                    
+                
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+      <!--modalshowend-->
+    <!-- Blog Start -->
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Blog list Start -->
+            <div class="col-lg-8">
+                <div class="blog-item mb-5" >
+                    <div class="row g-0 bg-light overflow-hidden" style="margin-bottom: 50px;" *ngFor="let adp of adpList">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" [src]="'data:image/png;base64,' + adp.photoUrl_adoptionpost" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
+                            <div class="p-4">
+                                <div class="d-flex mb-3">
+                                    <small class="me-3"><i class="bi bi-bookmarks me-2"></i>{{ adp.animalProfile.breed_animal }}</small>
+                                    <small><i class="bi bi-calendar-date me-2"></i>{{adp.creationdate_adoptionpost}}</small>
+                                </div>
+                                <h5 class="text-uppercase mb-3">Name:  {{ adp.animalProfile.name_animal }}</h5>
+                                <p>Description:   {{ adp.description_adoptionpost }}</p>
+                                <div>
+                                <a (click)="openModalShow(adp,adp.animalProfile)" class="text-primary text-uppercase" >Read More<i class="bi bi-chevron-right"></i></a>
+                                </div>
+                                <br>
+                                <div>
+                                <a (click)="showapplications(adp.id_adoptionpost)" class="text-primary text-uppercase" >Adopt now<i class="bi bi-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <!-- Blog list End -->
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                
+
+                <!-- Category Start -->
+                <div class="mb-5">
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">ADD POST</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="h5 bg-light py-2 px-3 mb-2" href="animalprofile"><i class="bi bi-arrow-right me-2"></i>Add Animal Profile</a>
+                        <a class="h5 bg-light py-2 px-3 mb-2" href="adoptionpost"><i class="bi bi-arrow-right me-2"></i>Add Adoption Post</a>
+                    </div>
+                </div>
+                <!-- Category End -->
+
+                <!-- Tags Start -->
+                <div class="mb-5">
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">CATEGORIES</h3>
+                    <div class="d-flex flex-wrap m-n1">
+                        <a  class="btn btn-primary m-1" style="color: white;">DOGS</a>
+                        <a  class="btn btn-primary m-1" style="color: white;">CATS</a>
+                        <a  class="btn btn-primary m-1" style="color: white;">BIRDS</a>
+                        <a  class="btn btn-primary m-1" style="color: white;">HORSES</a>
+                        <a  class="btn btn-primary m-1" style="color: white;">RABBITS</a>
+                        <a  class="btn btn-primary m-1"style="color: white;">OTHER</a>
+                    </div>
+                </div>
+                <!-- Tags End -->
+
+                <!-- Recent Post Start -->
+                <div class="mb-5" style="width: 400px;">
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">My Posts</h3>
+                    <div *ngFor="let adp of adpList">
+                    <div class="d-flex overflow-hidden mb-3"  >
+                        <img class="img-fluid" [src]="'data:image/png;base64,' + adp.photoUrl_adoptionpost" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+                        <div style="background-color: #f2f2f2; width: 400px; height: 100px;">
+                        <a  style="margin-top: 10px; margin-left: 15px; display:block;"><strong> {{ adp.animalProfile.name_animal }}</strong></a>
+                        <p  style="margin-left: 15px; display:block;">Breed :    {{ adp.animalProfile.breed_animal }}</p>
+                        <a  (click)="navigator(adp.id_adoptionpost)" class="text-primary text-uppercase" style="margin-left: 15px;">Check applications<i class="bi bi-chevron-right"></i></a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!-- Recent Post End -->
+
+                <!-- Image Start -->
+                <div class="mb-5">
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">My Applications</h3>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="h5 bg-light py-2 px-3 mb-2" href="showapplications"><i class="bi bi-arrow-right me-2"></i>Show my applications</a>
+                    </div>
+                </div>
+                <!-- Image End -->
+
+                
+
+                <!-- Plain Text Start -->
+                <div>
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Plain Text</h3>
+                    <div class="bg-light text-center" style="padding: 30px;">
+                        <p>Welcome to our adoption center! We are thrilled that you have decided to explore the possibility of adopting a furry friend. Our mission is to help connect loving pets with their forever homes....</p>
+                        <a class="btn btn-primary py-2 px-4" style="color: white;">Read More</a>
+                    </div>
+                </div>
+                <!-- Plain Text End -->
+            </div>
+            <!-- Sidebar End -->
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+<!-- FOOTER -->
+<app-footer></app-footer>
+<!-- FOOTER -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+     Template Javascript -
+    <script src="js/main.js"></script> -->
+</body>
+
+</html>
