@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+  <h3 class="panel-heading"> Users Details</h3>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>username</th>
+        <th>Email</th>
+        <th>Registration Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{user.id}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.registrationDate | date:'yyyy-MM-dd'}}</td>
+        <td>
+          <button class="btn btn-primary" (click)="view(user.id)">view</button>
+          <button class="btn btn-danger" (click)="deleteUser(user.id)">delete</button>
+          <button class="btn btn-primary" (click)="showStatsDialog(user)">stats</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="height: 400px; margin-top: 20px;">
+    <app-chart #myChart style="height: 100%;"></app-chart>
+  </div>
+  
+</div>
