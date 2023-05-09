@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rescue The Stray</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    
+    <link href="../assets/img/favicon.ico" rel="icon">
+        
+    <!--
+    Google Web Fonts 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+
+     Icon Font Stylesheet 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+     Libraries Stylesheet 
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+     Customized Bootstrap Stylesheet 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    Template Stylesheet 
+    <link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+    <!-- Nav Bar -->
+
+    <app-nav-bar></app-nav-bar>
+
+    <!-- End Nav Bar -->
+
+
+    <!-- Blog Start -->
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Blog list Start -->
+            <div class="col-lg-8">
+
+                
+                <div class="blog-item mb-5" id="myapps1">
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Adoption Applications:</h3>
+                   
+                    <div class="row g-0 bg-light overflow-hidden" style="margin-bottom: 50px;" *ngFor="let aap of aapList">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="../assets/img/userr.png" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
+                            <div class="p-4">
+                                <div class="d-flex mb-3">
+                                    <small class="me-3"><i class="bi bi-bookmarks me-2"></i>{{ aap.adoptionPost.animalProfile.breed_animal }}</small>
+                                    <small><i class="bi bi-calendar-date me-2"></i>{{aap.createdDate_adoptionapp}}</small>
+                                </div>
+                                <!-- <h5 class="text-uppercase mb-3">Application for:  {{ aap.adoptionPost.animalProfile.name_animal }}</h5> -->
+                                <h5 class="text-uppercase mb-3">Application FOR: {{ aap.adoptionPost.animalProfile.name_animal }} THE {{ aap.adoptionPost.animalProfile.type_animal }}</h5>
+                                <h5 class="text-uppercase mb-3">STATUS:   {{ aap.status_adoptionapp }}</h5>
+                                <div class="btn-group" >
+                                    <a   class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Show</a>
+                                    <a  (click)="aprove(aap.id_adoptionapp)"  class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Aprove</a>
+                                    <a  (click)="deny(aap.id_adoptionapp)"  class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Deny</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                            
+                </div>
+
+                <div class="blog-item mb-5" id="myapps2" style="display: none;">
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Best Adoption Applications:</h3>
+                    
+                          <!-- <div *ngIf="aap.adoptionPost.id_adoptionpost=== this.id"> -->
+                    <div class="row g-0 bg-light overflow-hidden" style="margin-bottom: 50px;"  *ngFor="let aap of bestList">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="../assets/img/userr.png" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
+                            <div class="p-4">
+                                <div class="d-flex mb-3">
+                                    <small class="me-3"><i class="bi bi-bookmarks me-2"></i>{{ aap.adoptionPost.animalProfile.breed_animal }}</small>
+                                    <small><i class="bi bi-calendar-date me-2"></i>{{aap.createdDate_adoptionapp}}</small>
+                                </div>
+                                <!-- <h5 class="text-uppercase mb-3">Application for:  {{ aap.adoptionPost.animalProfile.name_animal }}</h5> -->
+                                <h5 class="text-uppercase mb-3">Application FOR: {{ aap.adoptionPost.animalProfile.name_animal }} THE {{ aap.adoptionPost.animalProfile.type_animal }}</h5>
+                                <h5 class="text-uppercase mb-3">STATUS:   {{ aap.status_adoptionapp }}</h5>
+                                <div class="btn-group" >
+                                    <a   class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Show</a>
+                                    <a  (click)="aprove(aap.id_adoptionapp)"  class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Aprove</a>
+                                    <a  (click)="deny(aap.id_adoptionapp)"  class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Deny</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-6">
+                    <button type="button"  (click)="best()" (click)="switching1()"class="btn btn-primary w-100 py-3">Best</button>
+                 
+                  <button  type="button"(click)="switching2()" class="btn btn-primary w-100 py-3" >All</button>
+                  
+              </div>
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4" >
+                <!-- Blog Detail Start -->
+                
+                <div class="mb-5">
+                    <img class="img-fluid w-100 rounded mb-5" src="../assets/img/blog-1.jpg" alt="">
+                    <h1 class="text-uppercase mb-4">Thank you for your support. </h1>
+                    <p> Your contribution will make a meaningful difference in the lives of many stray animals.
+                        Your generosity and compassion are greatly appreciated. 
+                        Together, we can make a positive impact on the world and create a better future for our furry friends.
+                        
+                        Thank you again for your support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+<!-- FOOTER -->
+<app-footer></app-footer>
+<!-- FOOTER -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+     Template Javascript -
+    <script src="js/main.js"></script> -->
+</body>
+
+</html>

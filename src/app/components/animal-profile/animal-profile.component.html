@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rescue The Stray</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    
+</head>
+
+<body>
+    <!-- Nav Bar -->
+
+    <app-nav-bar></app-nav-bar>
+
+    <!-- End Nav Bar -->
+    <!--modalshow-->
+    <div class="modal fade" id="showw"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Animal details</h5>
+              <a class="close" href="animalprofile">&times;</a>
+            </div>
+            <div class="modal-body">
+              <div class="container p-0">
+
+                <!---->
+                
+                  <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Animal details</h3>
+                  
+                      <div class="row g-3" >
+                          
+                        <div class="col-12 col-sm-7">
+                          <label for="type" class="label">ID</label>
+                          <p>{{this.appObj.id_animal}}</p>
+                        </div>
+                        <div class="col-12 col-sm-7">
+                          <label for="type" class="label">Name</label>
+                          <p>{{this.appObj.name_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Type</label>
+                          <p>{{this.appObj.type_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Breed</label>
+                          <p>{{this.appObj.breed_animal}}</p>
+                        </div>
+                        <div class="col-12">
+                          <label for="gender" class="label" style="margin-right: 2cm;">Gender</label>
+                          <p>{{this.appObj.gender_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Age</label>
+                          <p>{{this.appObj.age_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="size" class="label">Size</label>
+                          <p>{{this.appObj.size_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Weight</label>
+                          <p>{{this.appObj.weight_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Color</label>
+                          <p>{{this.appObj.color_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Temperament</label>
+                          <p>{{this.appObj.temperament_animal}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">is Vaccinated?</label>
+                          <p>{{this.appObj.isVaccinated}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">is Trained?</label>
+                          <p>{{this.appObj.isTrained}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Medical Needs</label>
+                          <p>{{this.appObj.medicalNeeds_description}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">Behavioral Needs</label>
+                          <p>{{this.appObj.behavioralNeeds_description}}</p>
+                        </div>
+                        <div class="col-7">
+                          <label for="type" class="label">History</label>
+                          <p>{{this.appObj.history_animal}}</p>
+                        </div>
+                        
+                      </div>
+                  
+              
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+    <!--modalshowend-->
+    <!-- Blog Start -->
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+               
+                <!-- Comment Form Start -->
+                <div class="bg-light rounded p-5" >
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">{{ isEditForm ? 'Edit Animal Profile' : 'Add Animal Profile' }}</h3>
+                    <form  [formGroup]="apDetail">
+                        <div class="row g-3">
+                            
+                        <!--div class="col-12 col-sm-7">
+                            <input type="text" formControlName="id_user" class="form-control" id="id_user" placeholder="User Id" style="height: 55px;">
+                          </div-->
+                          <div class="col-12 col-sm-7">
+                            <label for="type" class="form-label">Name</label>
+                            <input type="text" formControlName="name_animal" class="form-control" id="name_animal" placeholder="Name" style="height: 55px;">
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="form-label">Type</label>
+                            <select formControlName="type_animal" class="form-select" aria-label="Default select example">
+                              <!-- <option selected *ngFor="let ap of apList" >{{isEditForm ?ap.type_animal:"DOG"}}</option> -->
+                              <option value="" disabled selected hidden>Select type</option>
+                              <option value="0">DOG</option>
+                              <option value="1">CAT</option>
+                              <option value="2">HORSE</option>
+                              <option value="3">RABBIT</option>
+                              <option value="4">BIRD</option>
+                            </select>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="form-label">Breed</label>
+                            <input type="text" formControlName="breed_animal" class="form-control" id="breed_animal" placeholder="Breed" style="height: 55px;">
+                          </div>
+                          <div class="col-12">
+                            <label for="gender" class="form-label" style="margin-right: 2cm;">Gender</label>
+                            <div class="form-check form-check-inline" style="margin-right: 2cm;">
+                              <input class="form-check-input" type="radio" id="male" formControlName="gender_animal" value="male">
+                              <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" id="female" formControlName="gender_animal" value="female">
+                              <label class="form-check-label" for="female">Female</label>
+                            </div>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="form-label">Age</label>
+                            <input type="text" formControlName="age_animal" class="form-control" id="age_animal" placeholder="age" style="height: 55px;">
+                          </div>
+                          <div class="col-7">
+                            <label for="size" class="form-label">Size</label>
+                            <select formControlName="size_animal" class="form-select" aria-label="Default select example">
+                              <!-- <option  selected *ngFor="let ap of apList" >{{isEditForm ?ap.size_animal : "BIG"}}</option> -->
+                              <option value="" disabled selected hidden>Select Size</option>
+                              <option value="0">BIG</option>
+                              <option value="1">MEDIUM</option>
+                              <option value="2">SMALL</option>
+                            </select>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="form-label">Weight</label>
+                            <input type="text" formControlName="weight_animal" class="form-control" id="weight_animal" placeholder="Weight" style="height: 55px;">
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="form-label">Color</label>
+                            <input type="text" formControlName="color_animal" class="form-control" id="color_animal" placeholder="Color" style="height: 55px;">
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="form-label">Temperament</label>
+                            <input type="text" formControlName="temperament_animal" class="form-control" id="temperament_animal" placeholder="Temperament" style="height: 55px;">
+                          </div>
+                          <div class="col-12">
+                            <div class="form-check form-check-inline" style="margin-right: 2cm;">
+                              <input class="form-check-input" type="checkbox" id="isVaccinated" formControlName="isVaccinated" value="true">
+                              <label class="form-check-label" for="isVaccinated">is Vaccinated</label>
+                            </div>
+                            <!--div class="form-check form-check-inline" style="margin-right: 2cm;">
+                              <input class="form-check-input" type="checkbox" id="isSterilized" formControlName="isSterilized" value="true">
+                              <label class="form-check-label" for="isSterilized">is Sterlizied</label>
+                            </div-->
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="isTrained" formControlName="isTrained" value="true">
+                              <label class="form-check-label" for="isTrained">is Trained</label>
+                            </div>
+                          </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                <input formControlName="medicalNeeds_animal" class="form-check-input" type="checkbox" id="medicalNeeds_animal"    (change)="toggle()"  value="true">
+                                <label class="form-check-label" for="medicalNeeds">Medical Needs</label>
+                                </div>
+                                <div class="col-7" style="display:none;" id="medicalDescription">
+                                    <input type="text" formControlName="medicalNeeds_description"class="form-control" id="medicalNeeds_description" placeholder="Medical Needs" style="height: 55px;">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                              <div class="form-check">
+                              <input formControlName="behavioralNeeds_animal" class="form-check-input" type="checkbox" id="behavioralNeeds_animal"    (change)="toggle2()"  value="true">
+                              <label class="form-check-label" for="behavioralNeeds">Behavioral Needs</label>
+                              </div>
+                              <div class="col-7" style="display:none;" id="behavioralDescription">
+                                  <input type="text" formControlName="behavioralNeeds_description"class="form-control" id="behavioralNeeds_description" placeholder="Behavioral Needs" style="height: 55px;">
+                              </div>
+                          </div>
+                            <!-- <div class="col-7">
+                                <label for="type" class="form-label">Behavioral Needs</label>
+                                <input type="text" formControlName="behavioralNeeds_animal" class="form-control" id="behavioralNeeds_animal" placeholder="Behavioral Needs" style="height: 55px;">
+                            </div> -->
+                            <div class="col-7">
+                                <label for="photo" class="form-label">Photo</label>
+                                <input type="file" formControlName="photoUrl_animal" class="form-control" id="photoUrl_animal" accept="images/'" (change)="onSelect($event)" />
+                                <img [src]=" isEditForm ? 'data:image/png;base64,' + url2: url " title="animal photo" height="250px" width="250px">
+                            </div>                           
+                            <div class="col-12">
+                                <label for="type" class="form-label">History</label>
+                                <textarea formControlName="history_animal" class="form-control" rows="5" id="history_animal" placeholder="History"></textarea>
+                            </div>
+                            <div class="col-6">
+                                <button type="button"  (click)="isEditForm ?updateAP():addAP()" (click)="cancel()"class="btn btn-primary w-100 py-3">Submit</button>
+                                
+                            </div>
+                            <div class="col-6">
+                              <button  type="button" (click)="isEditForm ?cancel():gotoAC()" class="btn btn-primary w-100 py-3" >Cancel</button>
+                              
+                          </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Comment Form End -->
+                
+
+              
+            
+                
+            </div>
+             <!-- Sidebar Start -->
+             <div class="col-lg-4">
+                <!-- Search Form Start -->
+                <div class="mb-5" style="width: 600px;">
+                    <div class="input-group">
+                        <input type="text" class="form-control p-3" placeholder="Search Animal Profile">
+                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    </div>
+                </div>
+                <!-- Search Form End -->
+
+                <!--show Animal Profiles -->
+                
+                <div style="height: 1600px; width: 610px; overflow-y: scroll;">
+                  <div class="card" style="width: 600px; margin-bottom: 10px;" *ngFor="let ap of apList">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img class="card-img-top" [src]="'data:image/png;base64,' + ap.photoUrl_animal" style="width: 200px; height: 200px; object-fit: cover;" alt="Card image cap">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body d-flex flex-column">
+                          <p class="card-text"><strong> {{ ap.name_animal }}</strong></p>
+                          <p class="card-text">Type:     {{ ap.type_animal }}</p>
+                          <p class="card-text">Breed:   {{ ap.breed_animal }}</p>
+                          <div class="btn-group" >
+                            <a  (click)="openModalShow(ap)" class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Show</a>
+                            <a  (click)="editAp(ap)" (click)="toggle()" (click)="toggle2()" class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Update</a>
+                            <a  (click)="deleteAP(ap)" class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Delete</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                  
+                
+                  
+                
+              
+
+                <!-- Image Start -->
+                <div class="mb-5">
+                    <img src="../assets/img/blog-1.jpg" alt="" class="img-fluid rounded">
+                </div>
+                <!-- Image End -->
+            </div>
+            <!-- Sidebar End -->
+            
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+<!-- FOOTER -->
+<app-footer></app-footer>
+<!-- FOOTER -->
+    
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+</body>
+
+</html>

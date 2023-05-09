@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rescue The Stray</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    
+    <link href="../assets/img/favicon.ico" rel="icon">
+        
+    <!--
+    Google Web Fonts 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+
+     Icon Font Stylesheet 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+     Libraries Stylesheet 
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+     Customized Bootstrap Stylesheet 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    Template Stylesheet 
+    <link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+       <!-- Nav Bar -->
+
+       <app-nav-bar></app-nav-bar>
+
+       <!-- End Nav Bar -->
+
+
+    <!-- Blog Start -->
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                
+
+                <!-- Comment Form Start -->
+                <div class="bg-light rounded p-5">
+                    
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Application information</h3>
+                <form [formGroup]="aapDetail">
+                    <div class="row g-3">
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Name:</label>
+                        <input type="text" formControlName="applicantName" id="applicantName"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Email:</label>
+                        <input type="email" formControlName="applicantEmail" id="applicantEmail" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Phone:</label>
+                        <input type="text" formControlName="applicantPhone" id="applicantPhone"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Address:</label>
+                        <input type="email" formControlName="applicantAddress" id="applicantAddress" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-7">
+                        <label for="type" class="form-label">Your Occupation</label>
+                        <input type="text"  formControlName="applicantOccupation" class="form-control" id="applicantOccupation" placeholder="Breed" style="height: 55px;">
+                    </div>
+                    <div class="col-7">
+                        <label for="type" class="form-label">Housing Type:</label>
+                        <select formControlName="applicantHousingType" class="form-select" aria-label="Default select example">
+                          <option value="" disabled selected hidden>Select type</option>
+                          <option value="0">COUNTRYHOUSE</option>
+                          <option value="1">HOUSE</option>
+                          <option value="2">APPARTEMENT</option>
+                          <option value="3">OTHER</option>
+                        </select>
+                    </div>
+                    <div class="col-7">
+                        <label for="type" class="form-label">Household Size:</label>
+                        <select formControlName="applicantHouseholdSize" class="form-select" aria-label="Default select example">
+                          <option value="" disabled selected hidden>Select type</option>
+                          <option value="0">VERYBIG</option>
+                          <option value="1">BIG</option>
+                          <option value="2">MEDIUM</option>
+                          <option value="3">SMALL</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-12">
+                            <label for="hasExperience" class="form-label" style="margin-right: 2cm;">Do you have experience?</label>
+                            <div class="form-check form-check-inline" style="margin-right: 2cm;">
+                              <input class="form-check-input" type="radio" id="male" formControlName="hasExperience" (change)="toggle()" value=true>
+                              <label class="form-check-label" for="male">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" id="female" formControlName="hasExperience" (change)="toggle2()" value=false>
+                              <label class="form-check-label" for="female">No</label>
+                            </div>
+                          </div>
+                        <div class="col-12" style="display:none;" id="applicantExperience">
+                            <input type="text" formControlName="applicantExperience"class="form-control" id="applicantExperience" placeholder="applicant Experience" style="height: 55px;">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-12">
+                            <label for="gender" class="form-label" style="margin-right: 2cm;">Do you have other pets?</label>
+                            <div class="form-check form-check-inline" style="margin-right: 2cm;">
+                              <input class="form-check-input" type="radio" id="male" formControlName="otherPets" (change)="toggle3()" value=true>
+                              <label class="form-check-label" for="male">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" id="female" formControlName="otherPets" (change)="toggle4()" value=false>
+                              <label class="form-check-label" for="female">No</label>
+                            </div>
+                          </div>
+                        <div class="col-12" style="display:none;" id="otherPetsDescription">
+                            <input type="text" formControlName="otherPetsDescription"class="form-control" id="otherPetsDescription" placeholder="Medical otherPetsDescription" style="height: 55px;">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Vet Name:</label>
+                        <input type="email" formControlName="vetName" id="vetName" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Vet Phone:</label>
+                        <input type="text" formControlName="vetPhone" id="vetPhone" class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Reference Name:</label>
+                        <input type="email" formControlName="referenceName" id="referenceName" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Reference Phone:</label>
+                        <input type="text" formControlName="referencePhone" id="referencePhone"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12">
+                        <label  class="form-label">Reference Relationship:</label>
+                        <input type="text" formControlName="referenceRelationship" id="referenceRelationship"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 ">
+                        <label for="message" class="form-label">Your Motive</label>
+                        <textarea formControlName="motive" class="form-control bg-white border-0" rows="5" style="height: 55px;" id="message"></textarea>
+                    </div>
+                        <div class="col-6">
+                            <button type="button"  (click)="addAAP()" class="btn btn-primary w-100 py-3">Submit</button>
+                            
+                        </div>
+                        <div class="col-6">
+                          <button  type="button" (click)="gotoADC()" class="btn btn-primary w-100 py-3" >Cancel</button>
+                          
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <!-- Comment Form End -->
+                <!-- Blog Detail Start -->
+                <div class="mb-5" style="margin-top: 50px;">
+                    <h1 class="text-uppercase mb-4">Privacy and Security </h1>
+                    <p> We take the security and privacy of your adoption application and personal information very seriously.
+                        All information you provide is securely processed and stored on our servers with strict adherence to data protection regulations.
+                        We understand the sensitivity of the information shared during the adoption application process, and we take every measure to ensure your personal information
+                        is kept private and confidential. You can apply for adoption with confidence knowing that your information is secure.</p>
+                </div>
+                <!-- Blog Detail End -->
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4">
+                <!-- Blog Detail Start -->
+                <div class="mb-5">
+                    <img class="img-fluid w-100 rounded mb-5" src="../assets/img/blog-1.jpg" alt="">
+                    <h1 class="text-uppercase mb-4">Thank you for your support. </h1>
+                    <p> Your contribution will make a meaningful difference in the lives of many stray animals.
+                        Your generosity and compassion are greatly appreciated. 
+                        Together, we can make a positive impact on the world and create a better future for our furry friends.
+                        
+                        Thank you again for your support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+<!-- FOOTER -->
+<app-footer></app-footer>
+<!-- FOOTER -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+     Template Javascript -
+    <script src="js/main.js"></script> -->
+</body>
+
+</html>

@@ -30,5 +30,9 @@ export class NavBarComponent implements OnInit {
   gotoCrowdFunding(){
     this.router.navigate(['/crowd-funding']);
   }
+
+  gotoAdoptionCenter(){
+    this.router.navigate(['/adoptioncenter']);
+  }
   
 }

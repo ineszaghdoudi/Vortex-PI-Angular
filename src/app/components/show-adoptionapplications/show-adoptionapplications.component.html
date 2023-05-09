@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rescue The Stray</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    
+    <link href="../assets/img/favicon.ico" rel="icon">
+        
+    <!--
+    Google Web Fonts 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@700&display=swap" rel="stylesheet">  
+
+     Icon Font Stylesheet 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+     Libraries Stylesheet 
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+     Customized Bootstrap Stylesheet 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    Template Stylesheet 
+    <link href="css/style.css" rel="stylesheet">-->
+</head>
+
+<body>
+    <!-- Nav Bar -->
+
+    <app-nav-bar></app-nav-bar>
+
+    <!-- End Nav Bar -->
+    <!--modalshow-->
+    <div class="modal fade" id="showw"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Application details</h5>
+                <a class="close" href="showapplications">&times;</a>
+              </div>
+              <div class="modal-body">
+                <div class="container p-0">
+  
+                  <!---->
+                  
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">Application details</h3>
+                    
+                        <div class="row g-3" >
+                            
+                          <div class="col-12 col-sm-7">
+                            <label for="type" class="label">ID</label>
+                            <p>{{this.appObj.id_adoptionapp}}</p>
+                          </div>
+                          <div class="col-12 col-sm-7">
+                            <label for="type" class="label">Name</label>
+                            <p>{{this.appObj.applicantName}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Email</label>
+                            <p>{{this.appObj.applicantEmail}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Phone Number</label>
+                            <p>{{this.appObj.applicantPhone}}</p>
+                          </div>
+                          <div class="col-12">
+                            <label for="gender" class="label" style="margin-right: 2cm;">Address</label>
+                            <p>{{this.appObj.applicantAddress}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Occupation</label>
+                            <p>{{this.appObj.applicantOccupation}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="size" class="label">Housing Type</label>
+                            <p>{{this.appObj.applicantHousingType}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Household Size</label>
+                            <p>{{this.appObj.applicantHouseholdSize}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Experience</label>
+                            <p>{{this.appObj.applicantExperience}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Other Pets</label>
+                            <p>{{this.appObj.otherPetsDescription}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Vet Name</label>
+                            <p>{{this.appObj.vetName}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Vet Phone</label>
+                            <p>{{this.appObj.vetPhone}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">ReferenceName</label>
+                            <p>{{this.appObj.referenceName}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label"> ReferencePhone </label>
+                            <p>{{this.appObj. referencePhone}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">ReferenceRelationship</label>
+                            <p>{{this.appObj.referenceRelationship}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Motive</label>
+                            <p>{{this.appObj.motive}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Status</label>
+                            <p>{{this.appObj.status_adoptionapp}}</p>
+                          </div>
+                          <div class="col-7">
+                            <label for="type" class="label">Creation Date</label>
+                            <p>{{this.appObj.createdDate_adoptionapp}}</p>
+                          </div>
+                        </div>
+                    
+                
+                  <!---->
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+      <!--modalshowend-->
+
+    <!-- Blog Start -->
+    <div class="container py-5">
+        <div class="row g-5">
+            <!-- Blog list Start -->
+            <div class="col-lg-8">
+
+                <!-- Comment Form Start -->
+                <div class="bg-light rounded p-5" id="foorm" style="display:none;">
+                    
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4"> Update Application information</h3>
+                <form [formGroup]="aapDetail">
+                    <div class="row g-3">
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Name:</label>
+                        <input type="text" formControlName="applicantName" id="applicantName"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Email:</label>
+                        <input type="email" formControlName="applicantEmail" id="applicantEmail" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Phone:</label>
+                        <input type="text" formControlName="applicantPhone" id="applicantPhone"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Your Address:</label>
+                        <input type="email" formControlName="applicantAddress" id="applicantAddress" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-7">
+                        <label for="type" class="form-label">Your Occupation</label>
+                        <input type="text"  formControlName="applicantOccupation" class="form-control" id="applicantOccupation" placeholder="Breed" style="height: 55px;">
+                    </div>
+                    <div class="col-7">
+                        <label for="type" class="form-label">Housing Type:</label>
+                        <select formControlName="applicantHousingType" class="form-select" aria-label="Default select example">
+                          <option value="" disabled selected hidden>Select type</option>
+                          <option value="0">COUNTRYHOUSE</option>
+                          <option value="1">HOUSE</option>
+                          <option value="2">APPARTEMENT</option>
+                          <option value="3">OTHER</option>
+                        </select>
+                    </div>
+                    <div class="col-7">
+                        <label for="type" class="form-label">Household Size:</label>
+                        <select formControlName="applicantHouseholdSize" class="form-select" aria-label="Default select example">
+                          <option value="" disabled selected hidden>Select type</option>
+                          <option value="0">VERYBIG</option>
+                          <option value="1">BIG</option>
+                          <option value="2">MEDIUM</option>
+                          <option value="3">SMALL</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-12">
+                            <label for="hasExperience" class="form-label" style="margin-right: 2cm;">Do you have experience?</label>
+                            <div class="form-check form-check-inline" style="margin-right: 2cm;">
+                              <input class="form-check-input" type="radio" id="male" formControlName="hasExperience" (change)="toggle()" value=true>
+                              <label class="form-check-label" for="male">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" id="female" formControlName="hasExperience" (change)="toggle2()" value=false>
+                              <label class="form-check-label" for="female">No</label>
+                            </div>
+                          </div>
+                        <div class="col-12" style="display:none;" id="applicantExperience">
+                            <input type="text" formControlName="applicantExperience"class="form-control" id="applicantExperience" placeholder="applicant Experience" style="height: 55px;">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="col-12">
+                            <label for="gender" class="form-label" style="margin-right: 2cm;">Do you have other pets?</label>
+                            <div class="form-check form-check-inline" style="margin-right: 2cm;">
+                              <input class="form-check-input" type="radio" id="male" formControlName="otherPets" (change)="toggle3()" value=true>
+                              <label class="form-check-label" for="male">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" id="female" formControlName="otherPets" (change)="toggle4()" value=false>
+                              <label class="form-check-label" for="female">No</label>
+                            </div>
+                          </div>
+                        <div class="col-12" style="display:none;" id="otherPetsDescription">
+                            <input type="text" formControlName="otherPetsDescription"class="form-control" id="otherPetsDescription" placeholder="Medical otherPetsDescription" style="height: 55px;">
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Vet Name:</label>
+                        <input type="email" formControlName="vetName" id="vetName" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Vet Phone:</label>
+                        <input type="text" formControlName="vetPhone" id="vetPhone" class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Reference Name:</label>
+                        <input type="email" formControlName="referenceName" id="referenceName" class="form-control bg-white border-0"  style="height: 55px;" id="email"  name="email" required>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <label  class="form-label">Reference Phone:</label>
+                        <input type="text" formControlName="referencePhone" id="referencePhone"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12">
+                        <label  class="form-label">Reference Relationship:</label>
+                        <input type="text" formControlName="referenceRelationship" id="referenceRelationship"  class="form-control bg-white border-0"  style="height: 55px;" id="name" name="name" required>
+                    </div>
+                    <div class="col-12 ">
+                        <label for="message" class="form-label">Your Motive</label>
+                        <textarea formControlName="motive" class="form-control bg-white border-0" rows="5" style="height: 55px;" id="message"></textarea>
+                    </div>
+                        <div class="col-6">
+                            <button (click)="updateAAP()" (click)="switching()" type="button"   class="btn btn-primary w-100 py-3">Submit</button>
+                            
+                        </div>
+                        <div class="col-6">
+                          <button  (click)="switching()" type="button"  class="btn btn-primary w-100 py-3" >Cancel</button>
+                          
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <!-- Comment Form End -->
+
+                <div class="blog-item mb-5" id="myapps">
+                    <h3 class="text-uppercase border-start border-5 border-primary ps-3 mb-4">MY Adoption Applications</h3>
+                    <div class="row g-0 bg-light overflow-hidden" style="margin-bottom: 50px;" *ngFor="let aap of aapList">
+                        <div class="col-12 col-sm-5 h-100">
+                            <img class="img-fluid h-100" src="../assets/img/userr.png" style="object-fit: cover;">
+                        </div>
+                        <div class="col-12 col-sm-7 h-100 d-flex flex-column justify-content-center">
+                            <div class="p-4">
+                                <div class="d-flex mb-3">
+                                    <small class="me-3"><i class="bi bi-bookmarks me-2"></i>{{ aap.adoptionPost.animalProfile.breed_animal }}</small>
+                                    <small><i class="bi bi-calendar-date me-2"></i>{{aap.createdDate_adoptionapp}}</small>
+                                </div>
+                                <!-- <h5 class="text-uppercase mb-3">Application for:  {{ aap.adoptionPost.animalProfile.name_animal }}</h5> -->
+                                <h5 class="text-uppercase mb-3">Application FOR: {{ aap.adoptionPost.animalProfile.name_animal }} THE {{ aap.adoptionPost.animalProfile.type_animal }}</h5>
+                                <h5 class="text-uppercase mb-3">STATUS:   {{ aap.status_adoptionapp }}</h5>
+                                <div class="btn-group" >
+                                    <a  (click)="openModalShow(aap)" class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Show</a>
+                                    <a  (click)="editAAP(aap)" (click)="switching()"   class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Update</a>
+                                    <a  (click)="deleteAAP(aap)"  class="btn btn-primary" style="margin-left: 2px; margin-right: 2px;">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            
+            </div>
+
+            <!-- Sidebar Start -->
+            <div class="col-lg-4" >
+                <!-- Blog Detail Start -->
+                <div class="mb-5">
+                    <img class="img-fluid w-100 rounded mb-5" src="../assets/img/blog-1.jpg" alt="">
+                    <h1 class="text-uppercase mb-4">Thank you for your support. </h1>
+                    <p> Your contribution will make a meaningful difference in the lives of many stray animals.
+                        Your generosity and compassion are greatly appreciated. 
+                        Together, we can make a positive impact on the world and create a better future for our furry friends.
+                        
+                        Thank you again for your support.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+
+
+<!-- FOOTER -->
+<app-footer></app-footer>
+<!-- FOOTER -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+     Template Javascript -
+    <script src="js/main.js"></script> -->
+</body>
+
+</html>

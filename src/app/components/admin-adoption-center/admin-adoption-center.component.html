@@ -1,81 +1,188 @@
 <!--ADMIN NAV BAR-->
+
 <app-admin-nav-bar></app-admin-nav-bar>
+
 <!--ADMIN NAV BAR-->
 
 
 <section class="learning-resource">
 
-    <a class="navbar-brand" style="color: black;" href="#">Adoption Posts</a>
 
-     <!-- TABLE 1-->
+  <a class="navbar-brand" style=" margin-top: 50px; color: black;" >Animal Profiles</a>
+    <!-- TABLE 1-->
+    <div style="width: 1500px; overflow-x: scroll;">
+      <table class="get-all">
+         <thead>
+           <tr>
+             <th scope="col">#</th>
+             <th scope="col">Name</th>
+             <th scope="col">Type</th>
+             <th scope="col">Breed</th>
+             <th scope="col">Photo</th>
+             <th scope="col">Age</th>
+             <th scope="col">Size</th>
+             <th scope="col">Weight</th>
+             <th scope="col">Color</th>
+             <th scope="col">Temperament</th>
+             <th scope="col">Vaccinated</th>
+             <th scope="col">Trained</th>
+             <th scope="col">Medical Needs</th>
+             <th scope="col">Behavioral Needs</th>
+             <th scope="col">History</th>
+             <th scope="col">Action</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr *ngFor="let ap of aplist">
+             <th scope="row">{{ap.id_animal}}</th>
+             <td>{{ap.name_animal}}</td>
+             <td>{{ap.type_animal}}</td>
+             <td>{{ap.breed_animal}}</td>
+             <td><img class="img-fluid" [src]="'data:image/png;base64,' + ap.photoUrl_animal"  style="width: 100px; height: 100px; object-fit: cover;" alt=""></td>
+             <td>{{ap.age_animal}}</td>
+             <td>{{ap.size_animal}}</td>
+             <td>{{ap.weight_animal}}</td>
+             <td>{{ap.color_animal}}</td>
+             <td>{{ap.temperament_animal}}</td>
+             <td>{{ap.isVaccinated}}</td>
+             <td>{{ap.isTrained}}</td>
+             <td>{{ap.medicalNeeds_description}}</td>
+             <td>{{ap.behavioralNeeds_description}}</td>
+             <td>{{ap.history_animal}}</td>
+             <td>
+              
+               <button type="button" (click)="deleteanimal(ap)" class="btn btn-outline-danger" >Delete</button> 
+             </td> 
+           </tr>
+       
+         </tbody>
+       </table>
+      </div>
+ 
+       <!-- TABLE 1-->
+    <a class="navbar-brand" style="margin-top: 50px;color: black;" >Adoption Posts</a>
+
+     <!-- TABLE 2-->
+     <div style="width: 1500px; overflow-x: scroll;">
+
      <table class="get-all">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Title</th>
+
+            <th scope="col">ID Animal Profile</th>
             <th scope="col">Description</th>
-            <th scope="col">haja</th>
-            <th scope="col" >haja</th>
+            <th scope="col">Photo</th>
+            <th scope="col" >Status</th>
+            <th scope="col">Adopter ID</th>
+            <th scope="col">Adoption Date</th>
+            <th scope="col">Creation Date</th>
+
             <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr >
-            <th scope="row">ID</th>
-            <td>Title</td>
-            <td>des</td>
-            <td>haja</td>
-            <td>haja okhra</td>
+
+          <tr *ngFor="let adp of adplist">
+            <th scope="row">{{adp.id_adoptionpost}}</th>
+            <td>{{adp.animalProfile.id_animal}}</td>
+            <td>{{adp.description_adoptionpost}}</td>
+            <td><img class="img-fluid" [src]="'data:image/png;base64,' + adp.photoUrl_adoptionpost"  style="width: 100px; height: 100px; object-fit: cover;" alt=""></td>
+            <td>{{adp.status_adoptionpost}}</td>
+            <td>{{adp.adopter_id}}</td>
+            <td>{{adp.adoptionDate}}</td>
+            <td>{{adp.creationdate_adoptionpost}}</td>
             <td>
              
-              <button type="button"  class="btn btn-outline-danger" >Delete</button> 
+              <button type="button" (click)="deletepost(adp)" class="btn btn-outline-danger" >Delete</button> 
+
             </td> 
           </tr>
       
         </tbody>
       </table>
 
-      <!-- TABLE 1-->
-
-      
-    <a class="navbar-brand" style="color: black;" href="#">Adoption Applications</a>
-
-           <!-- TABLE 2-->
-     <table class="get-all">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">haja</th>
-            <th scope="col" >haja</th>
-            <th scope="col">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
-            <th scope="row">ID</th>
-            <td>Title</td>
-            <td>des</td>
-            <td>haja</td>
-            <td>haja okhra</td>
-            <td>
-             
-              <button type="button"  class="btn btn-outline-danger" >Delete</button> 
-            </td> 
-          </tr>
-      
-        </tbody>
-      </table>
+     </div>
 
       <!-- TABLE 2-->
+
+      
+    <a class="navbar-brand" style="margin-top: 50px;color: black;" >Adoption Applications</a>
+
+           <!-- TABLE 3-->
+      <div style="width: 1500px; overflow-x: scroll;">
+
+     <table class="get-all">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+
+            <th scope="col">ID Adoption Post</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col" >Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">Occupation</th>
+            <th scope="col">Housing Type</th>
+            <th scope="col">Household Size</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Other Pets Description</th>
+            <th scope="col">vet Name</th>
+            <th scope="col">vet Phone</th>
+            <th scope="col">reference Name</th>
+            <th scope="col">reference Phone</th>
+            <th scope="col">reference Relationship</th>
+            <th scope="col">motive</th>
+            <th scope="col">Status</th>
+            <th scope="col">Creation Date</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let app of applist">
+            <th scope="row">{{app.id_adoptionapp}}</th>
+            <td>{{app.adoptionPost.id_adoptionpost}}</td>
+            <td>{{app.applicantName}}</td>
+            <td>{{app.applicantEmail}}</td>
+            <td>{{app.applicantPhone}}</td>
+            <td>{{app.applicantAddress}}</td>
+            <td>{{app.applicantOccupation}}</td>
+            <td>{{app.applicantHousingType}}</td>
+            <td>{{app.applicantHouseholdSize}}</td>
+            <td>{{app.applicantExperience}}</td>
+            <td>{{app.otherPetsDescription}}</td>
+            <td>{{app.vetName}}</td>
+            <td>{{app.vetPhone}}</td>
+            <td>{{app.referenceName}}</td>
+            <td>{{app.referencePhone}}</td>
+            <td>{{app.referenceRelationship}}</td>
+            <td>{{app.motive}}</td>
+            <td>{{app.status_adoptionapp}}</td>
+            <td>{{app.createdDate_adoptionapp}}</td>
+            <td>
+             
+              <button type="button" (click)="deleteapplication(app)" class="btn btn-outline-danger" >Delete</button> 
+
+            </td> 
+          </tr>
+      
+        </tbody>
+      </table>
+
+      </div>
+
+      <!-- TABLE 3-->
+
 
 
 
       <!-- Charts  -->
 
 <section class="chart-section">
-    <h2 class="chart-section__title">Chart mteek</h2>
+
+    <h2 class="chart-section__title">Adoption Application by Animal Type</h2>
+
     <div class="chart-container">
       <canvas id="myChart"></canvas>
     </div>
